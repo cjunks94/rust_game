@@ -11,7 +11,7 @@ use game::{GamePlugin, setup_game_entities};
 fn main() {
     App::new()
         .add_plugins(DefaultPlugins.set(AssetPlugin {
-            file_path: "assets/cat_black".into(),
+            file_path: "assets".into(),
             ..default()
         }))
         .insert_resource(AnimationLibrary::new())

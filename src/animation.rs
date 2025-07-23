@@ -28,51 +28,77 @@ impl AnimationLibrary {
         // Row 1: Walk animation
         animations.insert("walk".to_string(), Animation {
             name: "walk".to_string(),
-            frames: (8..11).collect(), // First 3 frames of row 1
+            frames: (12..15).collect(), // First 3 frames of row 1
             frame_duration: 0.2,
         });
         
-        // Row 2: Sleep animation
+        // Row 2: Pancake animation
+        animations.insert("pancake".to_string(), Animation {
+            name: "pancake".to_string(),
+            frames: vec![24], // Row 2, columns 0
+            frame_duration: 0.5,
+        });
+
+        // Row 3: Sleep animation
         animations.insert("sleep".to_string(), Animation {
             name: "sleep".to_string(),
-            frames: vec![16, 17, 18, 19], // Row 2, columns 0-3
-            frame_duration: 1.0,
-        });
-        
-        // Row 3: Grooming animation
-        animations.insert("groom".to_string(), Animation {
-            name: "groom".to_string(),
-            frames: (24..34).collect(), // Row 3, columns 0-9 (10 frames)
-            frame_duration: 0.15,
+            frames: (36..39).collect(), // Row 3
+            frame_duration: 0.5,
         });
         
         // Row 4: Play animation
         animations.insert("play".to_string(), Animation {
             name: "play".to_string(),
-            frames: (32..38).collect(), // Row 4, first 6 frames
-            frame_duration: 0.1,
+            frames: (48..57).collect(), // Row 4, first 10
+            frame_duration: 0.15,
         });
         
-        // Row 5: Jump animation
+        // Row 5: Run animation
+        animations.insert("run".to_string(), Animation {
+            name: "run".to_string(),
+            frames: (60..65).collect(), // Row 5, all 8 frames
+            frame_duration: 0.05,
+        });
+
+        // Row 6: Jump animation
         animations.insert("jump".to_string(), Animation {
             name: "jump".to_string(),
-            frames: (40..48).collect(), // Row 5, all 8 frames
+            frames: (72..80).collect(), // Row 5, all 8 frames
             frame_duration: 0.1,
-        });
-        
-        // Row 6: Box cat (cute) animation
-        animations.insert("cute".to_string(), Animation {
-            name: "cute".to_string(),
-            frames: (48..56).collect(), // Row 6, all 8 frames
-            frame_duration: 0.15,
         });
         
         // Row 7: More box cats
         animations.insert("box_play".to_string(), Animation {
             name: "box_play".to_string(),
-            frames: (56..64).collect(), // Row 7, all 8 frames
+            frames: {
+                let mut frames = Vec::new();
+                frames.extend(84..105);
+                frames.extend(108..120);
+                frames
+            }, // all box cats. mult rows
             frame_duration: 0.2,
         });
+
+        // Dance
+        animations.insert("dance".to_string(), Animation {
+            name: "dance".to_string(),
+            frames: (132..136).collect(),
+            frame_duration: 0.2,
+        });
+
+        // damage
+        animations.insert("damage".to_string(), Animation {
+            name: "damage".to_string(),
+            frames:
+            {
+                let mut frames = Vec::new();
+                frames.extend(204..212);
+                frames.extend(211..212);
+                frames
+            },
+            frame_duration: 0.2,
+        });
+
         
         AnimationLibrary { animations }
     }

@@ -54,12 +54,14 @@ pub fn toggle_debug_system(
             let animations = [
                 (KeyCode::Digit1, "idle"),
                 (KeyCode::Digit2, "walk"),
-                (KeyCode::Digit3, "sleep"),
-                (KeyCode::Digit4, "groom"),
+                (KeyCode::Digit3, "pancake"),
+                (KeyCode::Digit4, "sleep"),
                 (KeyCode::Digit5, "play"),
-                (KeyCode::Digit6, "jump"),
-                (KeyCode::Digit7, "cute"),
+                (KeyCode::Digit6, "run"),
+                (KeyCode::Digit7, "jump"),
                 (KeyCode::Digit8, "box_play"),
+                (KeyCode::Digit9, "dance"),
+                (KeyCode::Digit0, "damage"),
             ];
             
             for (key, anim_name) in animations {
@@ -116,7 +118,7 @@ pub fn update_debug_overlay_system(
             .insert(DebugOverlay);
         
         // Show the entire sprite sheet with grid overlay
-        let texture = asset_server.load("cat_spritesheet.png");
+        let texture = asset_server.load("cat_black/cat_spritesheet.png");
         commands.spawn((
             SpriteBundle {
                 texture,
